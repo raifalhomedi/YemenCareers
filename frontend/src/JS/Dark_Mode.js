@@ -1,45 +1,53 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // تحديد حالة الوضع الحالي من localStorage أو النظام
   const storedTheme = localStorage.getItem("theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const isDark = storedTheme === "dark" || (!storedTheme && prefersDark);
 
-  const themeToggle = document.getElementById("themeToggle");
-  const themeIcon = document.getElementById("themeIcon");
+  // تحديد كل أزرار التبديل، الأيقونات، والنصوص
+  const toggleButtons = document.querySelectorAll(".ThemeToggle");
+  const icons = document.querySelectorAll(".ThemeIcon");
+  const texts = document.querySelectorAll(".themeText");
 
+  // دالة لتحديث الأيقونة
+  function updateIcon(iconElement, dark) {
+    if (!iconElement) return;
 
-  function updateIcon(dark) {
-    // أضف التأثيرات مباشرة
-    themeIcon.style.opacity = "0";
-    themeIcon.style.transform = "rotate(180deg) scale(1.2)";
-  
+    iconElement.style.opacity = "0";
+    iconElement.style.transform = "rotate(180deg) scale(1.2)";
+
     setTimeout(() => {
-      // غيّر الصورة بعد جزء من الثانية
-      themeIcon.src = dark ? "/src/Images/sun.svg" : "/src/Images/moon.svg";
-      themeIcon.alt = dark ? "Sun Icon" : "Moon Icon";
-  
-      // استرجاع الحالة الطبيعية
-      themeIcon.style.opacity = "1";
-      themeIcon.style.transform = "rotate(0deg) scale(1)";
-    }, 200); // 200ms هي المهلة قبل تغيير الصورة
+      iconElement.src = dark ? "/src/Images/sun.svg" : "/src/Images/moon.svg";
+      iconElement.alt = dark ? "Sun Icon" : "Moon Icon";
+
+      iconElement.style.opacity = "1";
+      iconElement.style.transform = "rotate(0deg) scale(1)";
+    }, 200);
   }
 
-  if(themeIcon) {
-    updateIcon(isDark);
-
-  }
-
-  // تطبيق الوضع والرمز عند تحميل الصفحة
+  // عند تحميل الصفحة: تفعيل الوضع المظلم إن لزم
   document.documentElement.classList.toggle("dark", isDark);
 
-  // عند الضغط على الزر
-  if (themeToggle && themeIcon) {
-    themeToggle.addEventListener("click", () => {
+  // تحديث الأيقونات والنصوص عند بداية التحميل
+  icons.forEach((icon) => updateIcon(icon, isDark));
+  texts.forEach((text) => {
+    text.textContent = isDark ? "الوضع الفاتح" : "الوضع المظلم";
+  });
+
+  // عند النقر على أي زر تبديل
+  toggleButtons.forEach((toggleBtn) => {
+    toggleBtn.addEventListener("click", () => {
       const isDarkNow = document.documentElement.classList.toggle("dark");
       localStorage.setItem("theme", isDarkNow ? "dark" : "light");
-      updateIcon(isDarkNow);
+
+      icons.forEach((icon) => updateIcon(icon, isDarkNow));
+      texts.forEach((text) => {
+        text.textContent = isDarkNow ? "الوضع الفاتح" : "الوضع المظلم";
+      });
     });
-  }
+  });
 });
+
 
 
 //تغيير زر الرجوع في الوضع المظلم

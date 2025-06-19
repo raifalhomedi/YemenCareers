@@ -3,25 +3,27 @@ document.addEventListener("DOMContentLoaded", function () {
     <header
       class="box-shadow shadow-md h-24 flex justify-between items-center md:h-19 md:px-6 lg:h-27 lg:px-12 xl:px-10"
     >
+      <!-- ---------------------------------------- -->
+      <!-- هيدر الشاشات الكبيرة -->
       <!-- الجانب الايمن للشاشات الكبيرة -->
-      <ul id = "myList"
+      <!-- ---------------------------------------- -->
+      <ul
+        id="myList"
         class="flex items-center pt-4 md:space-x-6 lg:space-x-8 xl:space-x-8"
       >
         <li
-          class="text-light-blue font-bold text-3xl pr-3 sm:text-4xl sm:pr-4 md:pr-0 md:text-4xl lg:text-[30px] xl:text-[35px] dark:text-dark-primary-color"
+          class="text-light-blue font-bold text-3xl pr-3 sm:text-4xl sm:pr-4 md:pr-0 md:text-[32px] lg:text-[25px] xl:text-[35px] dark:text-dark-primary-color"
         >
-        <a href="/src/HTML/home.html" alt="يمن كريرز">
-          يمن كريرز
-          </a>
+          <a href="/src/HTML/home.html" alt="يمن كريرز"> يمن كريرز </a>
         </li>
         <li
-          class="hidden lg:block w-0.5 h-8 bg-primary-color/40 rounded-full"
+          class="hidden lg:block w-0.5 h-11 bg-primary-color/40 rounded-full"
         ></li>
         <li
           class="text-light-blue hidden lg:block lg:text-lg xl:text-xl font-bold dark:text-dark-secondary-color"
         >
-        <a href="/src/HTML/home.html" alt="الصفحة الرئيسية">
-          الصفحة الرئيسية
+          <a href="/src/HTML/home.html" alt="الصفحة الرئيسية">
+            الصفحة الرئيسية
           </a>
         </li>
         <li
@@ -30,16 +32,20 @@ document.addEventListener("DOMContentLoaded", function () {
           <a href="/src/HTML/search_for_job.html">البحث</a>
         </li>
         <li
-          class="hidden lg:block lg:text-lg xl:text-xl font-bold cursor-pointer dark:text-white"
+          class="hidden lg:block lg:text-lg xl:text-xl font-bold cursor-pointer dark:text-[#FFFFFF]"
         >
           <a href="/src/HTML/add_new_job.html">اضف طلب توظيف جديد</a>
         </li>
+
         <li
-          class="hidden lg:block lg:text-lg xl:text-xl font-bold cursor-pointer dark:text-white"
+          class="hidden lg:block lg:text-lg xl:text-xl font-bold cursor-pointer dark:text-[#FFFFFF]"
         >
           <a href="/src/HTML/Myjob.html">وظائفي</a>
         </li>
-        <!-- زر القائمة للشاشة الأقل من أو يساوي md -->
+
+        <!-- ---------------------------- -->
+        <!-- زر القائمة للشاشات الصغيرة -->
+        <!-- --------------------------- -->
         <button
           id="menu-toggle"
           class="text-gray-500 focus:outline-none z-30 absolute left-10 lg:hidden"
@@ -56,73 +62,108 @@ document.addEventListener("DOMContentLoaded", function () {
         >
           <!-- رأس القائمة -->
           <div
-            class="flex items-center justify-between p-4 border-b text-gray-300 mx-4"
+            class="flex items-center justify-between p-4 border-b text-dark-theme-color mx-4"
           >
-            <button id="menu-close" class="text-gray-500 text-6xl">
+            <button id="menu-close" class="text-gray-500 text-6xl relative">
               &times;
             </button>
-            <!--  mobile screen -->
-            <!-- القائمة المنسدلة الجانبية للشاشات الكبيرة بعد تسجيل الدخول-->
-            <!--
-  <div class="relative group md:hidden">
-  <button
-    id = "account-menu-button"
-      class="flex items-center  md:hidden lg:w-40 lg:h-10 xl:w-50 xl:h-12 mt-4 mr-0 space-x-2 bg-gray-100 px-2 py-2 rounded-lg hover:bg-gray-200 transition justify-between dark:bg-[#323232] "
-      onclick="toggleDropdown()"
-  >
-      <div class="flex items-center space-x-2 ">
-      <i id="dropdown-icon" class="fas fa-chevron-down mr-1 text-gray-600 transition-transform duration-300"></i>
-      <span class="company_name font-Cairo-bold text-sm text-black  lg:mr-4 xl:mr-12 dark:text-white"></span>
-      <img src="/src/Images/logo.jpeg" alt="Logo" class="w-8 h-8 rounded-full" />
-      </div>
-  </button>
-  <!-- القائمة المنسدلة للشاشات الكبيرة -->
-        <div
-            id="account-dropdown"
-            class="absolute left-1 mt-2 w-50 bg-white border border-gray-200 rounded-xl shadow-lg hidden z-50 dark:bg-[#323232] "
-        >
-        <div class="p-4 border-b border-gray-200">
-        <div class="flex flex-row-reverse items-center">
-            <!-- صورة الحساب -->
-            <img src="/src/Images/logo.jpeg" alt="Logo" class="w-12 h-12 rounded-full mr-3" />    
-            <!-- اسم الحساب والبريد -->
-            <div class="flex flex-col items-end text-right">
-            <div class="company_name text-lg font-Cairo-bold text-gray-900 dark:text-white"></div>
-            <div id ="email" class="text-[10px] text-blue-600 dark:text-[#5AF3E9]"></div>
-            
+
+            <!-- ------------------------------------------------------------- -->
+            <!-- القائمة المنسدلة الجانبية للشاشات الصغيرة بعد تسجيل الدخول-->
+            <!-- ------------------------------------------------------------- -->
+
+            <div class="relative group">
+              <button
+                class="account-menu-button flex lg:hidden items-center w-[160px] h-[40px] mt-4 mr-4 space-x-2 bg-gray-100 dark:bg-dark-third-color px-2 py-2 rounded-lg hover:bg-gray-200 transition"
+                onclick="toggleDropdown()"
+              >
+                <div class="flex items-center space-x-2">
+                  <i
+                    class="dropdown-icon fas fa-chevron-down mr-1 text-gray-600 transition-transform duration-300"
+                  ></i>
+                  <span
+                    class="font-Cairo-bold text-sm text-black lg:mr-4 xl:mr-12"
+                    >TechVision</span
+                  >
+                  <img
+                    src="/src/Images/logo.jpeg"
+                    alt="Logo"
+                    class="w-8 h-8 rounded-full"
+                  />
+                </div>
+              </button>
+
+              <!-- -------------------------------------------- -->
+              <!-- القائمة المنسدلة الداخلية للشاشات الصغيرة -->
+              <!-- -------------------------------------------- -->
+
+              <div
+                class="account-dropdown absolute left-0.5 mt-2 w-50 bg-white dark:bg-dark-third-color border border-gray-200 rounded-xl shadow-lg hidden z-50"
+              >
+                <div class="p-4 border-b border-gray-200">
+                  <div class="flex flex-row-reverse items-center">
+                    <!-- صورة الحساب -->
+                    <img
+                      src="/src/Images/logo.jpeg"
+                      alt="Logo"
+                      class="company-logo w-12 h-12 rounded-full mr-3"
+                    />
+                    <!-- اسم الحساب والبريد -->
+                    <div class="flex flex-col items-end text-right">
+                      <div
+                        class="company_name text-lg font-Cairo-bold text-gray-900 dark:text-white"
+                      >
+                        TechVision
+                      </div>
+                      <div class="email text-[10px] text-medium-blue">
+                        techvision@techvision.com
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul>
+                  <li>
+                    <a
+                      href="#"
+                      class="flex items-center px-4 py-2 text-gray-700 dark:text-white hover:text-medium-blue text-sm"
+                    >
+                      <i class="fas fa-user ml-2"></i>
+                      معلومات الحساب
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="flex items-center px-4 py-2 text-gray-700 dark:text-white hover:text-medium-blue text-sm"
+                    >
+                      <i class="fas fa-sliders-h ml-2"></i>
+                      إعدادات الحساب
+                    </a>
+                  </li>
+                  <li>
+                    <button
+                      class="ThemeToggle flex items-center px-4 py-2 text-gray-700 dark:text-white hover:text-medium-blue text-sm"
+                    >
+                      <img
+                        src="/src/Images/moon.svg"
+                        alt="ThemeIcon"
+                        class="ThemeIcon w-4 h-4 ml-2"
+                      />
+                      <span class ="themeText">الوضع المظلم</span>
+                    </button>
+                  </li>
+                  <hr class="my-1 text-gray-300" />
+                  <li>
+                    <button
+                      class="logOut_btn flex items-center px-4 py-2 text-gray-700 dark:text-white hover:text-red-500 text-sm"
+                    >
+                      <i class="fas fa-sign-out-alt ml-2"></i>
+                      تسجيل الخروج
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </div>
-        </div>
-        </div>
-            <ul>
-            <li>
-            <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm dark:text-white dark:hover:text-black dark:hover:bg-gray-50">
-            <i class="fas fa-user ml-2"></i>
-            معلومات الحساب
-            </a>
-            </li>
-            <li>
-            <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm dark:text-white dark:hover:text-black dark:hover:bg-gray-50">
-            <i class="fas fa-sliders-h ml-2"></i>
-            إعدادات الحساب
-            </a>
-            </li>
-            <li>
-            <button id="themeToggle" class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm dark:text-white dark:hover:text-black dark:hover:bg-gray-50" >
-            <img id="themeIcon" src="/src/Images/moon.svg" alt="Theme Icon" class="size-3.5 ml-2 transition-all duration-500 ease-in-out" />
-            الوضع المظلم
-            </button>
-            </li>
-            <hr class="my-1" />
-            <li>
-             <button id=logOut_btn href="#" class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm dark:text-white dark:hover:text-black dark:hover:bg-gray-50">
-            <i class="fas fa-sign-out-alt ml-2"></i>
-            تسجيل الخروج
-            </button>
-            </li>
-            </ul>    
-        </div>
-        </div>
-        <!--
           </div>
           <!-- الحاوية الكاملة -->
           <div
@@ -130,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
           >
             <!-- روابط التنقل الخاص بالجوال -->
             <nav
-              class="flex flex-col items-center space-y-20 font-Cairo-bold text-xl"
+              class="flex flex-col items-center space-y-4 font-Cairo-bold text-xl"
             >
               <a
                 href="/src/HTML/home.html"
@@ -145,20 +186,18 @@ document.addEventListener("DOMContentLoaded", function () {
               >
               <a
                 href="/src/HTML/add_new_job.html"
-                class=" hover:text-primary-color dark:text-[#FFFFFF]"
+                class="hover:text-primary-color dark:text-[#FFFFFF]"
                 >اضف طلب توظيف جديد</a
               >
               <a
                 href="/src/HTML/Myjob.html"
-                class=" hover:text-primary-color dark:text-[#FFFFFF]"
+                class="hover:text-primary-color dark:text-[#FFFFFF]"
                 >وظائفي</a
               >
             </nav>
 
             <!-- فاصل -->
             <div class="border-b border-gray-300 w-full"></div>
-
-           
 
             <!-- التذييل -->
             <footer class="text-center text-gray-500 text-sm space-y-2 pt-4">
@@ -176,188 +215,225 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </ul>
 
-      
-    
-     <!-- القائمة المنسدلة الجانبية للشاشات الكبيرة بعد تسجيل الدخول-->
-  <div class="relative group">
-  <button
-    id = "account-menu-button"
-      class=" hidden lg:flex items-center lg:w-40 lg:h-10 xl:w-50 xl:h-12 mt-4 mr-0 space-x-2 bg-gray-100 px-2 py-2 rounded-lg hover:bg-gray-200 transition justify-between dark:bg-[#323232] "
-      onclick="toggleDropdown()"
-  >
-      <div class="flex items-center space-x-2 ">
-      <i id="dropdown-icon" class="fas fa-chevron-down mr-1 text-gray-600 transition-transform duration-300"></i>
-      <span class="company_name font-Cairo-bold text-sm text-black  lg:mr-4 xl:mr-12 dark:text-white"></span>
-      <img src="/src/Images/logo.jpeg" alt="Logo" class="w-8 h-8 rounded-full" />
-      </div>
-  </button>
-  <!-- القائمة المنسدلة للشاشات الكبيرة -->
-        <div
-            id="account-dropdown"
-            class="absolute right-0 mt-2 w-50 bg-white border border-gray-200 rounded-xl shadow-lg hidden z-50 dark:bg-[#323232] "
+      <!-- -------------------------------------------------------------- -->
+      <!-- القائمة المنسدلة الجانبية للشاشات الكبيرة بعد تسجيل الدخول-->
+      <!-- ------------------------------------------------------------- -->
+
+      <div class="relative group">
+        <button
+          class="account-menu-button hidden lg:flex items-center lg:w-40 lg:h-10 xl:w-50 xl:h-12 mt-4 mr-0 space-x-2 bg-gray-100 dark:bg-dark-third-color px-2 py-2 rounded-lg hover:bg-gray-200 transition justify-between"
+          onclick="toggleDropdown()"
         >
-        <div class="p-4 border-b border-gray-200">
-        <div class="flex flex-row-reverse items-center">
-            <!-- صورة الحساب -->
-            <img src="/src/Images/logo.jpeg" alt="Logo" class="w-12 h-12 rounded-full mr-3" />    
-            <!-- اسم الحساب والبريد -->
-            <div class="flex flex-col items-end text-right">
-            <div class="company_name text-lg font-Cairo-bold text-gray-900 dark:text-white"></div>
-            <div id ="email" class="text-[10px] text-blue-600 dark:text-[#5AF3E9]"></div>
-            
+          <div class="flex items-center space-x-2">
+            <i
+              class="dropdown-icon fas fa-chevron-down mr-1 text-gray-600 transition-transform duration-300"
+            ></i>
+            <span class="font-Cairo-bold text-sm text-black lg:mr-4 xl:mr-12"
+              >TechVision</span
+            >
+            <img
+              src="/src/Images/logo.jpeg"
+              alt="Logo"
+              class="w-8 h-8 rounded-full"
+            />
+          </div>
+        </button>
+        <!-- القائمة المنسدلة للشاشات الكبيرة -->
+        <div
+          class="account-dropdown absolute right-0 mt-2 w-50 bg-white dark:bg-dark-third-color border border-gray-200 rounded-xl shadow-lg hidden z-50"
+        >
+          <div class="p-4 border-b border-gray-200">
+            <div class="flex flex-row-reverse items-center">
+              <!-- صورة الحساب -->
+                    <img
+                      src="/src/Images/logo.jpeg"
+                      alt="Logo"
+                      class="company-logo w-12 h-12 rounded-full mr-3"
+                    />
+                    <!-- اسم الحساب والبريد -->
+                    <div class="flex flex-col items-end text-right">
+                      <div
+                        class="company_name text-lg font-Cairo-bold text-gray-900 dark:text-white"
+                      >
+                        TechVision
+                      </div>
+                      <div class="email text-[10px] text-medium-blue">
+                        techvision@techvision.com
+                      </div>
+                    </div>
             </div>
-        </div>
-        </div>
-            <ul>
+          </div>
+          <ul>
             <li>
-            <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm dark:text-white dark:hover:text-black dark:hover:bg-gray-50">
-            <i class="fas fa-user ml-2"></i>
-            معلومات الحساب
-            </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-gray-700 dark:text-white hover:text-medium-blue text-sm"
+              >
+                <i class="fas fa-user ml-2"></i>
+                معلومات الحساب
+              </a>
             </li>
             <li>
-            <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm dark:text-white dark:hover:text-black dark:hover:bg-gray-50">
-            <i class="fas fa-sliders-h ml-2"></i>
-            إعدادات الحساب
-            </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-gray-700 dark:text-white hover:text-medium-blue text-sm"
+              >
+                <i class="fas fa-sliders-h ml-2"></i>
+                إعدادات الحساب
+              </a>
             </li>
             <li>
-            <button id="themeToggle" class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm dark:text-white dark:hover:text-black dark:hover:bg-gray-50" >
-            <img id="themeIcon" src="/src/Images/moon.svg" alt="Theme Icon" class="size-3.5 ml-2 transition-all duration-500 ease-in-out" />
-            الوضع المظلم
-            </button>
+              <button
+                class="ThemeToggle flex items-center px-4 py-2 text-gray-700 dark:text-white hover:text-medium-blue text-sm"
+              >
+                <img
+                  src="/src/Images/moon.svg"
+                  alt="ThemeIcon"
+                  class="ThemeIcon w-4 h-4 ml-2"
+                />
+                <span class="themeText">الوضع المظلم</span>
+              </button>
             </li>
-            <hr class="my-1" />
+            <hr class="my-1 text-gray-300" />
             <li>
-             <button id=logOut_btn href="#" class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm dark:text-white dark:hover:text-black dark:hover:bg-gray-50">
-            <i class="fas fa-sign-out-alt ml-2"></i>
-            تسجيل الخروج
-            </button>
+              <button
+                class="logOut_btn flex items-center px-4 py-2 text-gray-700 dark:text-white hover:text-red-500 text-sm"
+              >
+                <i class="fas fa-sign-out-alt ml-2"></i>
+                تسجيل الخروج
+              </button>
             </li>
-            </ul>    
+          </ul>
         </div>
-        </div>
+      </div>
     </header> `;
 
   // إدراج الهيدر داخل عنصر في الصفحة
   const userHeaderContainer = document.getElementById("user-header-container");
   if (userHeaderContainer) userHeaderContainer.innerHTML = userHeaderHTML;
+  getUserInfo(accessToken);
   let accessToken = localStorage.getItem("accessToken");
-  const logOut_btn = document.getElementById("logOut_btn");
 
-  
-
+  const logOutButtons = document.querySelectorAll(".logOut_btn");
+  logOutButtons.forEach((btn) => {
+    btn.addEventListener("click", handleLogout);
+  });
 
   // Handle LogOut Button
   async function handleLogout() {
     const { isConfirmed } = await Swal.fire({
-        title: "Are you sure?",
-        text: "Do you really want to log out?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#d33",
-        cancelButtonColor: "#3085d6",
-        confirmButtonText: "Yes",
-        cancelButtonText: "Cancel"
+      title: "Are you sure?",
+      text: "Do you really want to log out?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes",
+      cancelButtonText: "Cancel",
     });
 
     // إذا لم يؤكد المستخدم تسجيل الخروج، يتم الخروج من الدالة
     if (!isConfirmed) {
-        return;
+      return;
     }
 
     try {
-        await axiosInstance.post(`/api/v1/user/logout`, null, {
-            headers: { Authorization: `Bearer ${accessToken}` },
-        });
-        
-        localStorage.removeItem("accessToken");
+      await axiosInstance.post(`/api/v1/user/logout`, null, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
 
-        window.location.href = "/index.html";
-    }
-    catch (error) {
-        if (error.response) {
-            const status = error.response.status;
+      localStorage.removeItem("accessToken");
 
-            if (status === 401) {
-                try {
-                    const refreshResponse = await axiosInstance.get(`/api/v1/user/refresh`);
-                    localStorage.setItem("accessToken", refreshResponse.data.accessToken);
-                    return handleLogout.click();
-                } catch (refreshError) {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Session Expired",
-                        text: "You have to log in again.",
-                        confirmButtonColor: "#d33"
-                    }).then(() => {
-                        window.location.href = "/src/HTML/welcome.html";
-                    });
-                }
-            }else if (status === 429) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Too Many Requests",
-                    text: "You are making too many requests. Please try again later.",
-                    confirmButtonColor: "#d33",
-                });
-            } else if (status === 500) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Server Error",
-                    text: "Something went wrong. Please try again later.",
-                    confirmButtonColor: "#d33",
-                });
-            }
-        } else {
+      window.location.href = "/home.html";
+    } catch (error) {
+      if (error.response) {
+        const status = error.response.status;
+
+        if (status === 401) {
+          try {
+            const refreshResponse = await axiosInstance.get(
+              `/api/v1/user/refresh`
+            );
+            localStorage.setItem(
+              "accessToken",
+              refreshResponse.data.accessToken
+            );
+            return handleLogout;
+          } catch (refreshError) {
             Swal.fire({
-                icon: "error",
-                title: "Network Error",
-                text: "Please check your internet connection and try again.",
-                confirmButtonColor: "#d33",
+              icon: "error",
+              title: "Session Expired",
+              text: "You have to log in again.",
+              confirmButtonColor: "#d33",
+            }).then(() => {
+              window.location.href = "/src/HTML/welcome.html";
             });
+          }
+        } else if (status === 429) {
+          Swal.fire({
+            icon: "error",
+            title: "Too Many Requests",
+            text: "You are making too many requests. Please try again later.",
+            confirmButtonColor: "#d33",
+          });
+        } else if (status === 500) {
+          Swal.fire({
+            icon: "error",
+            title: "Server Error",
+            text: "Something went wrong. Please try again later.",
+            confirmButtonColor: "#d33",
+          });
         }
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Network Error",
+          text: "Please check your internet connection and try again.",
+          confirmButtonColor: "#d33",
+        });
+      }
     }
   }
-logOut_btn.addEventListener("click", handleLogout);
-
 });
 
 // Get some Information of user
-  async function getUserInfo(accessToken) {
-    try {
-            const user_id = localStorage.getItem("user_id");
-            let response = await axiosInstance.get(`/api/v1/user/info/${user_id}`);
-            let data = response.data;
-            if(header)
-            {
-                header.id = "user-header-container";
-                document.querySelector(".company_name").textContent = data.name;
-                document.querySelector("#email").textContent = data.email;
-            }
+async function getUserInfo(accessToken) {
+  try {
+    const user_id = localStorage.getItem("user_id");
+    const response = await axiosInstance.get(`/api/v1/user/info/${user_id}`, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
+    const data = response.data;
 
-        } catch(error) {
-             if (error.response) {
-            const status = error.response.status;
-            if (status === 401) {
-                try {
-                    const refreshResponse = await axiosInstance.get(`/api/v1/user/refresh`);
-                    localStorage.setItem("accessToken", refreshResponse.data.accessToken);
-                    return delete_account_btn.click();
-                } catch (refreshError) {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Session Expired",
-                        text: "You have to log in again.",
-                        confirmButtonColor: "#d33"
-                    }).then(() => {
-                        window.location.href = "/src/HTML/welcome.html";
-                    });
-                }
-              } else {
-                console.log("Error: " + error);
-        } 
-        }
-  }};
+    // تحديث العناصر حسب الكلاسات
+    const nameElements = document.querySelectorAll(".company_name");
+    const emailElements = document.querySelectorAll(".email");
+    const logoElements = document.querySelectorAll(".company-logo");
 
-
+    nameElements.forEach((el) => (el.textContent = data.name));
+    emailElements.forEach((el) => (el.textContent = data.email));
+    logoElements.forEach((el) => {
+      el.src = data.logo || "/src/Images/default-logo.jpeg";
+      el.alt = data.name || "Company Logo";
+    });
+  } catch (error) {
+    const status = error?.response?.status;
+    if (status === 401) {
+      try {
+        const refreshResponse = await axiosInstance.get(`/api/v1/user/refresh`);
+        localStorage.setItem("accessToken", refreshResponse.data.accessToken);
+        getUserInfo(refreshResponse.data.accessToken); // Retry
+      } catch {
+        Swal.fire({
+          icon: "error",
+          title: "انتهت صلاحية الجلسة",
+          text: "الرجاء تسجيل الدخول مجددًا",
+        }).then(() => {
+          window.location.href = "/src/HTML/welcome.html";
+        });
+      }
+    } else {
+      console.error("فشل جلب بيانات المستخدم:", error);
+    }
+  }
+}
